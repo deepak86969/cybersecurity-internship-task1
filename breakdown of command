@@ -1,0 +1,18 @@
+sudo nmap -sS 192.168.1.0/24 -oX network.xml
+sudo nmap -sS 192.168.1.0/24 -oN network.txt
+xsltproc network.xml -o network.html
+xsltproc /usr/share/nmap/nmap.xsl network.xml -o network.html
+
+Short flag/key explanations:-
+sudo — run as root (required for -sS on many systems).
+nmap — Network Mapper.
+-sS — SYN (stealth / half-open) scan.
+192.168.1.0/24 — target subnet (hosts .1–.254).
+-oX network.xml — write machine-readable XML to network.xml.
+-oN network.txt — (optional) write normal human-readable output to network.txt.
+xsltproc network.xml -o network.html — transform the XML into network.html using an XSL stylesheet.
+
+Notes / Safety
+Only scan networks you own or have explicit permission to scan.
+xsltproc uses the stylesheet referenced inside the Nmap XML (usually nmap.xsl). If missing, supply the path to nmap.xsl.
+File names used above: network.xml, network.txt, network.html.
