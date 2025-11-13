@@ -1,0 +1,23 @@
+# Cyber Security Internship - Task 1: Network Port Scanning
+
+## Objective
+Scan local network for open ports to understand network exposure using Nmap.
+
+## Tools Used
+- Nmap
+- Kali Linux
+
+## Steps Performed
+
+### 1. Found Local IP Range
+Used `ip a` command to find my network range: `192.168.1.0/24`
+
+### 2. Nmap Scans Performed
+- TCP SYN Scan: `sudo nmap -sS 192.168.1.0/24`
+- Service Version Detection: `sudo nmap -sS -sV 192.168.1.0/24`
+- UDP Scan: `sudo nmap -sU --top-ports 20 192.168.1.0/24`
+
+## Key Learnings
+- Understanding of TCP SYN scanning methodology
+- Identifying common services on open ports
+- Recognizing security risks from unnecessary open ports
